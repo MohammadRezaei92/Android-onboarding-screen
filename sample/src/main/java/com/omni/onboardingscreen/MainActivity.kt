@@ -1,8 +1,7 @@
 package com.omni.onboardingscreen
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.omni.onboardingscreen.R
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
