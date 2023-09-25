@@ -1,4 +1,4 @@
-package com.omni.onboardingscreen.core
+package com.omni.onboarding.core
 
 import android.animation.Animator
 import android.animation.ObjectAnimator
@@ -12,11 +12,11 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.animation.doOnEnd
-import com.omni.onboardingscreen.R
+import com.omni.onbarding.R
 
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-class PopTransition(context: Context, attrs: AttributeSet) : Visibility(context, attrs) {
+internal class PopTransition(context: Context, attrs: AttributeSet) : Visibility(context, attrs) {
 
     private var startScale: Float = 0.0f
     private var endScale: Float = 1.0f

@@ -1,9 +1,9 @@
-package com.omni.onboardingscreen.domain
+package com.omni.onboarding.domain
 
 import android.content.Context
 import android.content.SharedPreferences
 
-class OnBoardingPrefManager (_context: Context) {
+internal class OnBoardingPrefManager (_context: Context) {
 
 
     private val pref: SharedPreferences

@@ -1,12 +1,10 @@
-package com.omni.onboardingscreen.core
+package com.omni.onboarding.core
 
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
-import com.omni.onboardingscreen.R
-
+import com.omni.onbarding.R
 
 val pageCompositePageTransformer = CompositePageTransformer().apply {
     addTransformer(MarginPageTransformer(40))

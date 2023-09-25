@@ -1,16 +1,14 @@
-package com.omni.onboardingscreen.feature.onboarding.customView
+package com.omni.onboarding
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.viewpager2.widget.ViewPager2
-import com.omni.onboardingscreen.core.pageCompositePageTransformer
-import com.omni.onboardingscreen.core.setParallaxTransformation
-import com.omni.onboardingscreen.databinding.OnboardingViewBinding
-import com.omni.onboardingscreen.domain.OnBoardingPrefManager
-import com.omni.onboardingscreen.feature.onboarding.OnBoardingPagerAdapter
-import com.omni.onboardingscreen.feature.onboarding.entity.OnBoardingPage
+import com.omni.onbarding.databinding.OnboardingViewBinding
+import com.omni.onboarding.core.setParallaxTransformation
+import com.omni.onboarding.domain.OnBoardingPrefManager
+import com.omni.onboarding.entity.OnBoardingPage
 
 class OnBoardingView @JvmOverloads
 constructor(
@@ -21,12 +19,20 @@ constructor(
 ) :
     FrameLayout(context, attrs, defStyleAttr, defStyleRes) {
 
-    private val numberOfPages by lazy { OnBoardingPage.values().size }
+    private val numberOfPages by lazy { OnBoardingPage.defaultData().size }
     private val prefManager: OnBoardingPrefManager
+    private var _binding: OnboardingViewBinding? = null
+    private val binding get() = _binding!!
 
+    var pages: List<OnBoardingPage> = OnBoardingPage.defaultData()
+        set(value) {
+            field = value
+            binding.setUpSlider()
+        }
+    var goToMainScreen: () -> Unit = {}
 
     init {
-        val binding = OnboardingViewBinding.inflate(LayoutInflater.from(context), this, true)
+        _binding = OnboardingViewBinding.inflate(LayoutInflater.from(context), this, true)
         with(binding) {
             setUpSlider()
             addingButtonsClickListeners()
@@ -37,12 +43,12 @@ constructor(
 
     private fun OnboardingViewBinding.setUpSlider() {
         with(slider) {
-            adapter = OnBoardingPagerAdapter()
+            adapter = OnBoardingPagerAdapter(pages)
 
             setPageTransformer { page, position ->
                 setParallaxTransformation(page, position)
             }
-//
+
 //            setPageTransformer(pageCompositePageTransformer)
 
             addSlideChangeListener()
@@ -74,9 +80,11 @@ constructor(
         nextBtn.setOnClickListener { navigateToNextSlide(slider) }
         skipBtn.setOnClickListener {
             setFirstTimeLaunchToFalse()
+            goToMainScreen()
         }
         startBtn.setOnClickListener {
             setFirstTimeLaunchToFalse()
+            goToMainScreen()
         }
     }
 

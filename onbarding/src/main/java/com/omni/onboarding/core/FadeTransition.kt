@@ -1,4 +1,4 @@
-package com.omni.onboardingscreen.core
+package com.omni.onboarding.core
 
 import android.animation.Animator
 import android.animation.ObjectAnimator
@@ -10,11 +10,11 @@ import android.transition.TransitionValues
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
-import com.omni.onboardingscreen.R
+import com.omni.onbarding.R
 
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-class FadeTransition : Transition {
+internal class FadeTransition : Transition {
 
     private var startAlpha: Float = 0.0f
     private var endAlpha: Float = 1.0f

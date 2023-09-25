@@ -1,15 +1,15 @@
-package com.omni.onboardingscreen.feature.onboarding
+package com.omni.onboarding
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.omni.onboardingscreen.databinding.OnboardingPageItemBinding
-import com.omni.onboardingscreen.feature.onboarding.entity.OnBoardingPage
+import com.omni.onbarding.databinding.OnboardingPageItemBinding
+import com.omni.onboarding.entity.OnBoardingPage
 
 /**
  *OnBoardingPagerAdapter adapter for the viewpager2
  *  @param onBoardingPageList as Array */
-class OnBoardingPagerAdapter(private val onBoardingPageList: Array<OnBoardingPage> = OnBoardingPage.values()) :
+internal class OnBoardingPagerAdapter(private val onBoardingPageList: List<OnBoardingPage> = OnBoardingPage.defaultData()) :
     RecyclerView.Adapter<OnBoardingPagerAdapter.PagerViewHolder>() {
 
 

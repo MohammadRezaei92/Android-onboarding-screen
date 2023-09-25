@@ -1,4 +1,4 @@
-package com.omni.onboardingscreen.feature.home
+package com.omni.onboardingscreen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
