@@ -20,7 +20,7 @@ constructor(
     FrameLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     private val numberOfPages by lazy { OnBoardingPage.defaultData().size }
-    private val prefManager: OnBoardingPrefManager
+    val prefManager: OnBoardingPrefManager
     private var _binding: OnboardingViewBinding? = null
     private val binding get() = _binding!!
 

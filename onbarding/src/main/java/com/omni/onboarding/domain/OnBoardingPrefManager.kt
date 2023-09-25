@@ -3,7 +3,7 @@ package com.omni.onboarding.domain
 import android.content.Context
 import android.content.SharedPreferences
 
-internal class OnBoardingPrefManager (_context: Context) {
+class OnBoardingPrefManager (_context: Context) {
 
 
     private val pref: SharedPreferences
@@ -27,7 +27,7 @@ internal class OnBoardingPrefManager (_context: Context) {
 
     companion object {
         private const val IS_FIRST_TIME_LAUNCH = "IS_FIRST_TIME_LAUNCH"
-        private const val PREF_NAME = "PREF_NAME"
+        private const val PREF_NAME = "Onboarding_pref"
     }
 
 }
